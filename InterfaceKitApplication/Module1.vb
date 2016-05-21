@@ -13,14 +13,18 @@
         inter.open()
         inter.waitForAttachment(1000)
 
-        LoopingSub()
-    End Sub
+        Dim index As Integer = 0
+        Do While True
 
-    Dim NumberOfLoops = 0
-    Sub LoopingSub()
-        NumberOfLoops = NumberOfLoops + 1
+            Console.WriteLine(index.ToString)
+            index += 1
 
-        Console.WriteLine(NumberOfLoops)
+            ' Sleeps for 15ms, as specified by the int "15"
+            Sleep(15)
+
+        Loop
+
+        Console.WriteLine("Goodbye!")
 
         ' For example:
         ' The following code sets index zero on the digital outputs to ON/
@@ -29,10 +33,7 @@
         ' This code makes the third index on the digital output OFF/
         '   inter.outputs(3) = False
         '
-        ' A varible defined within this loop will be thrown out by the next loop,
-        ' so define your varibles outside of the LoopingSub().
-        '
-        ' You can also do some math with the "NumberOfLoops" varible,
+        ' You can also do some math with the "index" varible,
         ' such as checking if it divides into 30 using modulo (https://en.wikipedia.org/wiki/Modulo_operation),
         '
         '   If (NumberOfLoops Mod 30) is 0 Then
@@ -41,10 +42,6 @@
         '       inter.outputs(0) = False
         '   End If
 
-        ' Sleeps for 15ms, as specified by the int "15"
-        Sleep(15)
-
-        LoopingSub()
     End Sub
 
 End Module
